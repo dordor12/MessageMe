@@ -12,7 +12,8 @@
 
   <body>
     <%= render 'layouts/menu' %>
-    <div class="ui container">
+    <div class="ui container page_container">
+      <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </div>
   </body>

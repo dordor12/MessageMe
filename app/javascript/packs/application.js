@@ -16,7 +16,25 @@ require("semantic-ui-sass")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+scroll_bottom = () => {
+    if ($('#messages').length > 0){
+        $('#messages').scrollTop($('#messages')[0].scrollHeight)
+    }
+};
+
+submit_message = () => {
+    $('#messages').on('keydown',(e) => {
+        if (e.keyCode == 13){ //enter
+            $('button').click();
+        }
+    });
+};
 
 $(document).on('turbolinks:load', () => {
     $('.ui.dropdown').dropdown();
+    $('.message .close').click(() => {
+        $('.message').transition('fade');
+    });
+    scroll_bottom();
+    submit_message();
 });
